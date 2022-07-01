@@ -22,7 +22,7 @@ public class EstabelecimentoController {
     @GetMapping(value = "/estabelecimentos")
     public String telaListaEstabelecimentos(Model model){
         model.addAttribute("lista", estabelecimentoService.listarEstabelecimentos());
-        return "estabelecimento/estabelecimentos";
+        return "estabelecimento/listar";
     }
 
     @GetMapping(value = "/funcionarios/{id}")
@@ -34,7 +34,7 @@ public class EstabelecimentoController {
 
         model.addAttribute("lista", estabelecimentoService.listarFuncionariosPorIdEstabelecimento(id));
         estabelecimento.ifPresent(value -> model.addAttribute("estabelecimento", value));
-        return "funcionario/funcionarios";
+        return "funcionario/listar";
     }
 
     @GetMapping(value = "/funcionario/{idFuncionario}/{idEstabelecimento}")
@@ -61,7 +61,7 @@ public class EstabelecimentoController {
 
         model.addAttribute("estabelecimento", estabelecimento);
         model.addAttribute("funcionario", funcionario);
-        return "funcionario/cadastro";
+        return "funcionario/criar";
     }
 
     @PostMapping(value = "/funcionario/incluir/{idEstabelecimento}")
@@ -83,7 +83,7 @@ public class EstabelecimentoController {
     @GetMapping(value = "/estabelecimento")
     public String telaCadastroEstabelecimento(Model model){
         model.addAttribute("estabelecimento", new Estabelecimento());
-        return "estabelecimento/cadastro";
+        return "estabelecimento/criar";
     }
 
 

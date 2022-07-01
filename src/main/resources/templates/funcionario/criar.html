@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>App Estabelecimento</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div th:insert="menu :: navbar"></div>
+
+<div class="container mt-3">
+    <h2>Novo Funcionário [(${estabelecimento.nome})]</h2>
+
+    <form th:action="@{/funcionario/incluir/{id}(id=${estabelecimento.id})}" th:object="${funcionario}" method="post">
+
+        <div class="mb-3 mt-3">
+            <label>Login:
+                <input type="text" class="form-control" placeholder="Login" name="login" th:field="*{login}"/>
+            </label>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label>Nome:
+                <input type="text" class="form-control" placeholder="Nome" name="nome" th:field="*{nome}"/>
+            </label>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label>Senha:
+                <input type="password" class="form-control" name="senha" th:field="*{senha}"/>
+            </label>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label>CPF:
+                <input type="text" class="form-control" name="cpf" th:field="*{cpf}"/>
+            </label>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label>Email:
+                <input type="text" class="form-control" placeholder="email" name="email" th:field="*{email}"/>
+            </label>
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label>Telefone:
+                <input type="text" class="form-control" placeholder="telefone" name="telefone" th:field="*{telefone}"/>
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+
+</body>
+</html>

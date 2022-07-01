@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>App Estabelecimento</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div th:insert="menu :: navbar"></div>
+<div class="container mt-3">
+
+    <h2 align="center">Lista de Funcionários [(${estabelecimento.nome})]</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Excluir</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="f : ${lista}">
+            <td th:text="${f.cpf}"/>
+            <td th:text="${f.nome}"/>
+            <td th:text="${f.email}"/>
+            <td th:text="${f.telefone}"/>
+            <td><a th:href="@{/funcionario/{idFuncionario}/{idEstabelecimento} (idFuncionario = ${f.id}, idEstabelecimento = ${estabelecimento.id})}">Excluir</a> </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/funcionario/incluir/{id}(id=${estabelecimento.id})}" class="btn btn-primary">Novo</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>App Estabelecimento</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div th:insert="menu :: navbar"></div>
+<div class="container mt-3">
+
+    <h2 align="center">Estabelecimentos</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>CNPJ</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>EdTech</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="e : ${lista}">
+            <td th:text="${e.cnpj}"/>
+            <td th:text="${e.nome}"/>
+            <td th:text="${e.endereco}"/>
+            <!--    edTech = true        -->
+            <td th:if="${e.edTech}">Sim</td>
+            <!--    edTech = false        -->
+            <td th:if="${not e.edTech}">Não</td>
+            <td><a th:href="@{/funcionarios/{id}(id=${e.id})}">Funcionários</a></td>
+            <td><a th:href="@{/estabelecimento/excluir/{id}(id=${e.id})}">Excluir</a> </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/estabelecimento}" class="btn btn-primary">Novo</a>
+
+</div>
+</body>
+</html>

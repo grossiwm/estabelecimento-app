@@ -19,21 +19,21 @@ public interface EstabelecimentoClient {
     @GetMapping("/usuario/listar")
     List<Usuario> obterLista();
 
-    @DeleteMapping("usuario/{id}/excluir")
+    @DeleteMapping("/usuario/{id}/excluir")
     void excluir(@PathVariable Integer id);
 
-    @PostMapping("usuario/validar")
+    @PostMapping("/usuario/validar")
     Usuario validar(@RequestParam String login, @RequestParam String senha);
 
-    @PostMapping("funcionario/incluir")
+    @PostMapping("/funcionario")
     void incluirFuncionario(@RequestBody Funcionario funcionario);
 
-    @GetMapping("funcionario/{idEstabelecimento}/listar")
+    @GetMapping("/funcionario/{idEstabelecimento}/listar")
     List<Funcionario> funcionariosPorEstabelecimento(@PathVariable Integer idEstabelecimento);
 
-    @PostMapping("estabelecimento/incluir")
+    @PostMapping("/estabelecimento")
     void incluirEstabelecimento(@RequestBody Estabelecimento estabelecimento);
 
-    @GetMapping("estabelecimento/listar")
+    @GetMapping("/estabelecimento")
     List<Estabelecimento> listarEstabelecimento();
 }
