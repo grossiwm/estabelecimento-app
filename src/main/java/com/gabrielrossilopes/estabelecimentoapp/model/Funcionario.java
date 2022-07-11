@@ -6,7 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Funcionario extends Usuario {
-    private String cpf;
+    private static final long serialVersionUID = 1L;
+	private String cpf;
     private String email;
     private String telefone;
     private Estabelecimento estabelecimento;
